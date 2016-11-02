@@ -76,6 +76,14 @@ public class XorTest {
 		int res = Xor.getXorInLinearTime(from, to);
 		Assert.assertEquals(res, Xor.getXor(from, to));
 	}
+	
+	@Test
+	public void xorEqualNegatives() {
+		int from = -67;
+		int to = -67;
+		int res = Xor.getXorInLinearTime(from, to);
+		Assert.assertEquals(res, Xor.getXor(from, to));
+	}
 
 	@Test
 	public void xorLeftNegativeAndRightPositive() {

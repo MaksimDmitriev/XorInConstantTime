@@ -20,7 +20,9 @@ public class Xor {
 
 	public static int getXor(int a, int b) {
 		if (a > b) {
-			throw new IllegalArgumentException("a must be greater than b");
+			throw new IllegalArgumentException("a must be less than or equals to b");
+		} else if (a == b) {
+			return 0;
 		}
 		if (b < 0) { // both a and b are negative
 			return getXorNeg(a) ^ getXorNeg(b + 1);
@@ -33,7 +35,9 @@ public class Xor {
 
 	public static int getXorInLinearTime(int a, int b) {
 		if (a > b) {
-			throw new IllegalArgumentException("a must be greater than b");
+			throw new IllegalArgumentException("a must be less than or equals to b");
+		} else if (a == b) {
+			return 0;
 		}
 		int res = a;
 		for (int i = a + 1; i <= b; i++) {
