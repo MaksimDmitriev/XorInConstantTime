@@ -2,7 +2,11 @@ package xor;
 
 public class Xor {
 
-	public static int getXorNeg(int x) {
+	private Xor() {
+		throw new AssertionError("Xor cannot be instantiated");
+	}
+
+	static int getXorNeg(int x) {
 		if (x > 0) {
 			throw new IllegalArgumentException("x cannot be positive");
 		}
@@ -10,7 +14,7 @@ public class Xor {
 		return res[-x % 4];
 	}
 
-	public static int getXorPos(int a) {
+	static int getXorPos(int a) {
 		if (a < 0) {
 			throw new IllegalArgumentException("a cannot be negative");
 		}
@@ -21,8 +25,6 @@ public class Xor {
 	public static int getXor(int a, int b) {
 		if (a > b) {
 			throw new IllegalArgumentException("a must be less than or equals to b");
-		} else if (a == b) {
-			return 0;
 		}
 		if (b < 0) { // both a and b are negative
 			return getXorNeg(a) ^ getXorNeg(b + 1);
@@ -31,19 +33,6 @@ public class Xor {
 		} else { // a is negative, and b is positive
 			return getXorNeg(a) ^ getXorPos(b);
 		}
-	}
-
-	public static int getXorInLinearTime(int a, int b) {
-		if (a > b) {
-			throw new IllegalArgumentException("a must be less than or equals to b");
-		} else if (a == b) {
-			return 0;
-		}
-		int res = a;
-		for (int i = a + 1; i <= b; i++) {
-			res ^= i;
-		}
-		return res;
 	}
 
 }
