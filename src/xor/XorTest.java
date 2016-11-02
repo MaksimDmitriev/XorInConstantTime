@@ -78,7 +78,7 @@ public class XorTest {
 	}
 	
 	@Test
-	public void xorEqualNegatives() {
+	public void xorEquals() {
 		int from = -67;
 		int to = -67;
 		int res = Xor.getXorInLinearTime(from, to);
